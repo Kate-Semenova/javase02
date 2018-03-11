@@ -37,12 +37,12 @@ public class SortedByNameTest {
     }
 
     @Test
-    public void compareShouldReturnPositiveIfFirstIsBigger() {
+    public void compareShouldReturnPositiveIfFirstIsSmaller() {
         assertTrue(sortedByName.compare(ruler, pen) > 0);
     }
 
     @Test
-    public void compareShouldReturnZeroIfFirstIsBigger() {
+    public void compareShouldReturnZeroIfEquals() {
         assertEquals(sortedByName.compare(pen, pen2), 0);
     }
 }
