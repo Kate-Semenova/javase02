@@ -32,17 +32,17 @@ public final class AllGroups {
         GROUP_SET.add(enGroup);
         GROUP_SET.add(piGroup);
 
-        for (Student student : AllStudents.students
+        for (Student student : AllStudents.STUDENTS
                 ) {
-            mathGroup.addStudentAndAssessment(student, 5);
+            mathGroup.addStudentAndMark(student, 5);
         }
 
-        chemGroup.addStudentAndAssessment(AllStudents.students.get(0), 5.5);
-        chemGroup.addStudentAndAssessment(AllStudents.students.get(1), 6.0);
-        chemGroup.addStudentAndAssessment(AllStudents.students.get(5), 3.2);
+        chemGroup.addStudentAndMark(AllStudents.STUDENTS.get(0), 5.5);
+        chemGroup.addStudentAndMark(AllStudents.STUDENTS.get(1), 6.0);
+        chemGroup.addStudentAndMark(AllStudents.STUDENTS.get(5), 3.2);
 
-        javaGroup.addStudentAndAssessment(AllStudents.students.get(0), 4);
-        javaGroup.addStudentAndAssessment(AllStudents.students.get(7), 5);
+        javaGroup.addStudentAndMark(AllStudents.STUDENTS.get(0), 4);
+        javaGroup.addStudentAndMark(AllStudents.STUDENTS.get(7), 5);
 
 
     }

@@ -45,6 +45,6 @@ public class Student {
         return false;
     }
     public int hashCode(){
-        return name.hashCode() * surname.hashCode() * course;
+        return name.hashCode() * 17 + surname.hashCode() * 17 + course * 17;
     }
 }

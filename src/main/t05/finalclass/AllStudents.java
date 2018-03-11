@@ -9,17 +9,18 @@ import java.util.List;
  * Created by Ekaterina Semenova on 09.03.2018.
  */
 public final class AllStudents {
-    public static final List<Student> students = new ArrayList<>();
+    public static final List<Student> STUDENTS = new ArrayList<>();
+
     static {
-        students.add(new Student("Katerina", "Semenova"));
-        students.add(new Student("Ivan", "Ivanoff"));
-        students.add(new Student("Robert", "Smith"));
-        students.add(new Student("Michel", "Robinson"));
-        students.add(new Student("Richard", "Gir"));
-        students.add(new Student("Simon", "Luv"));
-        students.add(new Student("Helen", "Kar"));
-        students.add(new Student("Lisa", "Venom"));
-        students.add(new Student("Gabriel", "Smith"));
-        students.add(new Student("Marie", "Li"));
+        STUDENTS.add(new Student("Katerina", "Semenova"));
+        STUDENTS.add(new Student("Ivan", "Ivanoff"));
+        STUDENTS.add(new Student("Robert", "Smith"));
+        STUDENTS.add(new Student("Michel", "Robinson"));
+        STUDENTS.add(new Student("Richard", "Gir"));
+        STUDENTS.add(new Student("Simon", "Luv"));
+        STUDENTS.add(new Student("Helen", "Kar"));
+        STUDENTS.add(new Student("Lisa", "Venom"));
+        STUDENTS.add(new Student("Gabriel", "Smith"));
+        STUDENTS.add(new Student("Marie", "Li"));
     }
 }

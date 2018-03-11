@@ -10,30 +10,30 @@ import main.t05.model.Student;
  */
 public class Run {
     public static void main(String[] args) {
-        Student X = AllStudents.students.get(0);
+        Student studentX = AllStudents.STUDENTS.get(0);
 
-        System.out.println("Information about student " + X);
+        System.out.println("Information about student " + studentX);
         for (Group g: AllGroups.GROUP_SET
                 ) {
-            if(g.hasStudent(X)){
-                System.out.println(g.getDiscipline() + " " + g.getAssessment(X));
+            if(g.hasStudent(studentX)){
+                System.out.println(g.getDiscipline() + " " + g.getMark(studentX));
             }
         }
 
         System.out.println();
-        Student Y = AllStudents.students.get(1);
-        System.out.println("Information about student " + Y);
-        for (Group g: AllGroups.GROUP_SET
+        Student studentY = AllStudents.STUDENTS.get(1);
+        System.out.println("Information about student " + studentY);
+        for (Group group: AllGroups.GROUP_SET
                 ) {
-            if(g.hasStudent(Y)){
-                System.out.println(g.getDiscipline() + " " + g.getAssessment(X));
+            if(group.hasStudent(studentY)){
+                System.out.println(group.getDiscipline() + " " + group.getMark(studentY));
             }
         }
 
         System.out.println("========================");
-        for (Group g: AllGroups.GROUP_SET
+        for (Group group: AllGroups.GROUP_SET
              ) {
-            System.out.println(g);
+            System.out.println(group);
         }
     }
 }

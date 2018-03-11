@@ -9,121 +9,121 @@ import java.util.Map;
 public class Group {
 
     private Discipline discipline;
-    private Map<Student, Assessment> studentAssessmentMap = new HashMap<>();
+    private Map<Student, Mark> studentMarkMap = new HashMap<>();
 
-    public Group(Discipline discipline){
+    public Group(Discipline discipline) {
         this.discipline = discipline;
     }
 
 
-    public void addStudentAndAssessment(Student student, Object o) {
+    public void addStudentAndMark(Student student, Object o) {
         switch (discipline) {
             case JAVA_COURSE: {
                 if (!(o instanceof Integer)) {
                     //TODO exception
-                    System.out.println("Assessment is incorrect");
+                    System.out.println("Mark is incorrect");
                     break;
                 }
-                Assessment<Integer> a = new Assessment<>((Integer) o);
-                studentAssessmentMap.put(student, a);
+                Mark<Integer> a = new Mark<>((Integer) o);
+                studentMarkMap.put(student, a);
                 break;
             }
             case MATH: {
                 if (!(o instanceof Integer)) {
-                    System.out.println("Assessment is incorrect");
+                    System.out.println("Mark is incorrect");
                     break;
                 }
-                Assessment<Integer> a = new Assessment<>((Integer) o);
-                studentAssessmentMap.put(student, a);
+                Mark<Integer> a = new Mark<>((Integer) o);
+                studentMarkMap.put(student, a);
                 break;
             }
             case CHEMISTRY: {
                 if (!(o instanceof Double)) {
-                    System.out.println("Assessment is incorrect");
+                    System.out.println("Mark is incorrect");
                     break;
                 }
 
-                Assessment<Double> a = new Assessment<>((Double) o);
-                studentAssessmentMap.put(student, a);
+                Mark<Double> a = new Mark<>((Double) o);
+                studentMarkMap.put(student, a);
                 break;
             }
             case ENGLISH: {
                 if (!(o instanceof Double)) {
-                    System.out.println("Assessment is incorrect");
+                    System.out.println("Mark is incorrect");
                     break;
                 }
 
-                Assessment<Double> a = new Assessment<>((Double) o);
-                studentAssessmentMap.put(student, a);
+                Mark<Double> a = new Mark<>((Double) o);
+                studentMarkMap.put(student, a);
                 break;
             }
 
             case PI: {
                 if (!(o instanceof Double)) {
-                    System.out.println("Assessment is incorrect");
+                    System.out.println("Mark is incorrect");
                     break;
                 }
-                Assessment<Double> a = new Assessment<>((Double) o);
-                studentAssessmentMap.put(student, a);
+                Mark<Double> a = new Mark<>((Double) o);
+                studentMarkMap.put(student, a);
                 break;
             }
         }
     }
 
-    public boolean hasStudent(Student student){
-        return studentAssessmentMap.containsKey(student);
+    public boolean hasStudent(Student student) {
+        return studentMarkMap.containsKey(student);
     }
 
-    public Object getAssessment(Student student) {
-        if(this.hasStudent(student)){
-            return studentAssessmentMap.get(student).getAssessment();
-        }
-        else {
+    public Object getMark(Student student) {
+        if (this.hasStudent(student)) {
+            return studentMarkMap.get(student).getMark();
+        } else {
             //TODO exception
             System.out.println("No such student");
             return 0;
         }
     }
-public String getDiscipline(){
+
+    public String getDiscipline() {
         return discipline.name();
-}
+    }
+
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Discipline ").append(discipline.name()).append("\n");
-        sb.append("List of students:\n");
-        if(studentAssessmentMap.isEmpty()){
-           sb.append("Nobody attends the class\n");
-           return sb.toString();
+        sb.append("List of STUDENTS:\n");
+        if (studentMarkMap.isEmpty()) {
+            sb.append("Nobody attends the class\n");
+            return sb.toString();
         }
-        for (Map.Entry<Student, Assessment> entry: studentAssessmentMap.entrySet()
-             ) {
+        for (Map.Entry<Student, Mark> entry : studentMarkMap.entrySet()
+                ) {
             sb.append(entry.getKey().getName()).append(" ");
             sb.append(entry.getKey().getSurname());
-            sb.append(" Assessment is ").append(entry.getValue()).append("\n");
+            sb.append(" Mark is ").append(entry.getValue()).append("\n");
         }
         return sb.toString();
     }
 
 
+    public static class Mark <A extends Number> {
+        private A mark;
 
-    public static class Assessment<A> {
-        private A assessment;
-
-        private Assessment(A assessment){
-        this.assessment = assessment;
+        public Mark(A mark) {
+            this.mark = mark;
         }
 
 
-        private A getAssessment() {
-            return assessment;
+        public A getMark() {
+            return mark;
         }
+
         @Override
-        public String toString(){
-            return assessment.toString();
+        public String toString() {
+            return mark.toString();
         }
     }
-
 
 
 }

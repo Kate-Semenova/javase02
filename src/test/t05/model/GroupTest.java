@@ -22,7 +22,7 @@ public class GroupTest {
     public void setUp() {
         group = new Group(Discipline.ENGLISH);
         student = new Student("Kate", "Semenova");
-        group.addStudentAndAssessment(student, 5.0);
+        group.addStudentAndMark(student, 5.0);
     }
 
     @Test
@@ -33,6 +33,6 @@ public class GroupTest {
 
     @Test
     public void getAssessmentShouldReturnAssessmentIfThereIsAStudent() {
-        assertEquals(5.0, group.getAssessment(new Student("Kate", "Semenova")));
+        assertEquals(5.0, group.getMark(new Student("Kate", "Semenova")));
     }
 }
