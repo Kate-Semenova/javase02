@@ -12,9 +12,9 @@ public class SortedByNameAndPrice implements Comparator<Stationery> {
     public int compare(Stationery o1, Stationery o2) {
         SortedByName sortByName = new SortedByName();
         SortedByPriceDecreasingly sortedByPriceDecreasingly = new SortedByPriceDecreasingly();
-
-        if (sortByName.compare(o1, o2) != 0) {
-            return sortByName.compare(o1, o2);
+        int compare = sortByName.compare(o1, o2);
+        if (compare != 0) {
+            return compare;
         }
         return sortedByPriceDecreasingly.compare(o1, o2);
     }
