@@ -17,7 +17,12 @@ public class AtomicBoat {
         this.country = country;
         engine = new Engine(model);
     }
-
+    public boolean getIsOnTrip(){
+        return isOnTrip;
+    }
+    public int getCount(){
+        return count;
+    }
     public String getName(){
         return this.name;
     }
@@ -37,7 +42,6 @@ public class AtomicBoat {
         if(!isOnTrip && engine.turnOn()){
             System.out.println(name + " has started");
             System.out.println("It is its " + count + " trip");
-            isOnTrip = true;
         }
         else{
             if(isOnTrip){
@@ -52,6 +56,7 @@ public class AtomicBoat {
     public void stop(){
         isOnTrip = false;
     }
+
 
     public class Engine{
         private boolean fixed;
@@ -74,7 +79,6 @@ public class AtomicBoat {
                 }
             }
         }
-
         private boolean turnOn(){
             if(fixed){
                 count++;
@@ -83,6 +87,7 @@ public class AtomicBoat {
                     fixed = false;
                 }
                 System.out.println("Engine is turned on");
+                isOnTrip = true;
                 return true;
             }
             System.out.println("Engine is out of date");
