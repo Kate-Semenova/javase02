@@ -1,4 +1,4 @@
-package t06;
+package main.t06;
 
 /**
  * Created by Ekaterina Semenova on 09.03.2018.

@@ -2,7 +2,7 @@ package test.t06;
 
 import org.junit.Before;
 import org.junit.Test;
-import t06.AtomicBoat;
+import main.t06.AtomicBoat;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;

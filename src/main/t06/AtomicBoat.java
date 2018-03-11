@@ -1,6 +1,4 @@
-package t06;
-
-import java.util.Timer;
+package main.t06;
 
 /**
  * Created by Ekaterina Semenova on 09.03.2018.
