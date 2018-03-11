@@ -11,11 +11,11 @@ public class SortedByNameAndPrice implements Comparator<Stationery> {
     @Override
     public int compare(Stationery o1, Stationery o2) {
         SortedByName sortByName = new SortedByName();
-        SortedByPrice sortedByPrice = new SortedByPrice();
+        SortedByPriceDecreasingly sortedByPriceDecreasingly = new SortedByPriceDecreasingly();
 
-        if(sortByName.compare(o1, o2) != 0){
+        if (sortByName.compare(o1, o2) != 0) {
             return sortByName.compare(o1, o2);
         }
-        return sortedByPrice.compare(o1, o2);
+        return sortedByPriceDecreasingly.compare(o1, o2);
     }
 }

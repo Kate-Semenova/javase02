@@ -2,6 +2,7 @@ package test.t02t03t04;
 
 import main.t02t03t04.Employee;
 import main.t02t03t04.Price;
+import main.t02t03t04.exception.NoSuchStationaryException;
 import main.t02t03t04.stationery.Stationery;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,8 +16,8 @@ import static org.junit.Assert.assertTrue;
  */
 public class EmployeeTest {
 
-    Employee employee;
-    Stationery stationery;
+    private Employee employee;
+    private Stationery stationery;
 
     @Before
     public void setUp() {
@@ -31,9 +32,15 @@ public class EmployeeTest {
     }
 
     @Test
-    public void removePenShouldRemoveThePen() {
+    public void removePenShouldRemoveThePen() throws NoSuchStationaryException {
         employee.removeStationery(stationery);
         assertFalse(employee.hasStationery(stationery));
+    }
+
+    @Test (expected = NoSuchStationaryException.class)
+    public void removePenShouldThrowException() throws NoSuchStationaryException{
+        Stationery stationery2 = new Stationery(new Price(42));
+        employee.removeStationery(stationery2);
     }
 
     @Test

@@ -1,4 +1,4 @@
-package main;
+package main.t02t03t04;
 
 import main.t02t03t04.Employee;
 import main.t02t03t04.stationery.*;
@@ -11,8 +11,8 @@ import java.util.List;
 public class App {
     public static void main(String[] args) {
         Employee employee1 = new Employee("John", "Snow");
-        RecruitmentKit rk = new RecruitmentKit();
-        List<Stationery> stationeries = rk.getStationeries();
+        RecruitmentKit recruitmentKit = new RecruitmentKit();
+        List<Stationery> stationeries = recruitmentKit.getStationeries();
 
         employee1.addStationaries(stationeries);
 
@@ -28,7 +28,7 @@ public class App {
         System.out.println();
         System.out.println("Here employee`s List does not change at all. These methods are for RecruitmentKit only");
         System.out.println("=========sort by price========");
-        rk.sortByPrice();
+        recruitmentKit.sortByPrice();
         for (Stationery s : stationeries
                 ) {
             System.out.println(s);
@@ -37,7 +37,7 @@ public class App {
         System.out.println();
 
         System.out.println("========sort by name========");
-        rk.sortByName();
+        recruitmentKit.sortByName();
         for (Stationery s : stationeries
                 ) {
             System.out.println(s);
@@ -46,7 +46,7 @@ public class App {
         System.out.println();
 
         System.out.println("====sort by name and price====");
-        rk.sortByNameAndPrice();
+        recruitmentKit.sortByNameAndPrice();
         for (Stationery s : stationeries
                 ) {
             System.out.println(s);

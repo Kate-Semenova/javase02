@@ -1,5 +1,6 @@
 package main.t02t03t04;
 
+import main.t02t03t04.exception.NoSuchStationaryException;
 import main.t02t03t04.stationery.Stationery;
 
 import java.util.ArrayList;
@@ -17,7 +18,6 @@ public class Employee {
         this.name = name;
         this.surname = surname;
     }
-
 
     public String getName() {
         return name;
@@ -40,13 +40,10 @@ public class Employee {
     }
 
     public void addStationaries(List<Stationery> stationeries) {
-        for (Stationery s :
-                stationeries) {
-            this.stationeries.add(s);
-        }
+        this.stationeries.addAll(stationeries);
     }
 
-    public List<Stationery> getStationeries(){
+    public List<Stationery> getStationeries() {
         return stationeries;
     }
 
@@ -54,11 +51,12 @@ public class Employee {
         return stationeries.contains(stationery);
     }
 
-    public void removeStationery(Stationery stationery) {
+    public void removeStationery(Stationery stationery) throws NoSuchStationaryException {
+
         if (this.hasStationery(stationery)) {
             stationeries.remove(stationery);
         } else {
-            System.out.println("There is no " + stationery.toString()); //TODO normal toString
+            throw new NoSuchStationaryException(stationery.toString());
         }
     }
 
@@ -66,7 +64,7 @@ public class Employee {
         float price = 0;
         for (Stationery st :
                 stationeries) {
-            price = price + st.getPrice();
+            price += st.getPrice();
         }
         return price;
     }

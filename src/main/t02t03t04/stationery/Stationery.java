@@ -41,7 +41,10 @@ public class Stationery {
     }
 
     public boolean equals(Object object) {
-        if (object instanceof Stationery) {
+        if(object == this){
+            return true;
+        }
+        if (object != null && object instanceof Stationery) {
             Stationery newObject = (Stationery) object;
             if (this.getPrice() != newObject.getPrice()) {
                 return false;
