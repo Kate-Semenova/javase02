@@ -6,12 +6,13 @@ import main.t02t03t04.Price;
  * Created by Ekaterina Semenova on 05.03.2018.
  */
 public class Stationery {
+    public static final String NONE = "none";
     private Price price;
     private String manufacturerCompany;
 
     public Stationery(Price price) {
         this.price = price;
-        this.manufacturerCompany = "";
+        this.manufacturerCompany = NONE;
     }
 
     public Stationery(Price price, String manufacturerCompany) {
@@ -41,7 +42,7 @@ public class Stationery {
     }
 
     public boolean equals(Object object) {
-        if(object == this){
+        if (object == this) {
             return true;
         }
         if (object != null && object instanceof Stationery) {
@@ -58,7 +59,7 @@ public class Stationery {
     }
 
     public String getName() {
-        return "none";
+        return NONE;
     }
 
     @Override

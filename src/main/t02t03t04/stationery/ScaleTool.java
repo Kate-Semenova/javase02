@@ -7,45 +7,30 @@ import main.t02t03t04.exception.NoSuchNameException;
  * Created by Ekaterina Semenova on 06.03.2018.
  */
 public class ScaleTool extends Stationery {
-    int length;
-    Material material;
+    private int length;
+    private Material material;
+
+    private Name name;
 
     public ScaleTool(String name, int length, String material, Price price) throws NoSuchNameException {
         super(price);
         this.length = length;
 
-        switch (name.toLowerCase()) {
-            case "ruler": {
-                this.name = Name.RULER;
-                break;
-            }
-            case "protractor": {
-                this.name = Name.PROTRACTOR;
-                break;
-            }
-            case "measuring_tape": {
-                this.name = Name.MEASURING_TAPE;
-                if (length < 50) {
-                    System.out.println(name + "can`t be shorter than 50");
-                }
-                break;
-            }
-            default: {
-                //TODO throw NoSuchNameException();
-                System.out.println("Can`t identify a scale tool");
-            }
-        }
         try {
             this.name = Name.valueOf(name.toUpperCase());
+        } catch (IllegalArgumentException exception) {
+            throw new NoSuchNameException(name);
+        }
+        try {
             this.material = Material.valueOf(material.toUpperCase());
-        } catch (IllegalArgumentException e) {
-            throw new NoSuchNameException( material);
+        } catch (IllegalArgumentException exception) {
+            throw new NoSuchNameException(material);
         }
     }
 
     public String getName() {
         if (name == null) {
-            return "none";
+            return NONE;
         }
         return name.name();
     }
@@ -53,12 +38,20 @@ public class ScaleTool extends Stationery {
     public void setName(Name name) {
         this.name = name;
     }
+
+    public int getLength() {
+        return length;
+    }
+
+    public String getMaterial() {
+        return material.name().toLowerCase();
+    }
+
     private enum Material {
         WOOD, METAL, PLASTIC;
 
     }
 
-    private Name name;
     private enum Name {
         RULER,
         PROTRACTOR,

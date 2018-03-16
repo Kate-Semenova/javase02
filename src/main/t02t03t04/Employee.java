@@ -47,15 +47,10 @@ public class Employee {
         return stationeries;
     }
 
-    public boolean hasStationery(Stationery stationery) {
-        return stationeries.contains(stationery);
-    }
 
     public void removeStationery(Stationery stationery) throws NoSuchStationaryException {
 
-        if (this.hasStationery(stationery)) {
-            stationeries.remove(stationery);
-        } else {
+        if (!stationeries.remove(stationery)) {
             throw new NoSuchStationaryException(stationery.toString());
         }
     }
