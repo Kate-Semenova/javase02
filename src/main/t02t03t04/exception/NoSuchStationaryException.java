@@ -5,6 +5,6 @@ package main.t02t03t04.exception;
  */
 public class NoSuchStationaryException extends Exception {
     public NoSuchStationaryException(String stationary) {
-        System.out.println("There is no " + stationary);
+        super("There is no " + stationary);
     }
 }
