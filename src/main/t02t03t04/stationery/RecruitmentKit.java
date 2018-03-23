@@ -16,16 +16,14 @@ import java.util.List;
 public class RecruitmentKit {
     private static List<Stationery> stationeries = new ArrayList<>();
 
-     {
-        stationeries.add(new WritingTool("pen", Color.BLUE, new Price(46, 54)));
-        stationeries.add(new WritingTool("pencil", Color.DARK_GRAY, new Price(12, 50)));
-        stationeries.add(new CleaningTool("eraser", new Price(20)));
-        try {
+    static {
+
+            stationeries.add(new WritingTool("pen", Color.BLUE, new Price(46, 54)));
+            stationeries.add(new WritingTool("pencil", Color.DARK_GRAY, new Price(12, 50)));
+            stationeries.add(new CleaningTool("eraser", new Price(20)));
             stationeries.add(new ScaleTool("ruler", 13, "plastic", new Price(20)));
             stationeries.add(new ScaleTool("ruler", 30, "metal", new Price(100)));
-        }catch (NoSuchNameException exception){
-            exception.printStackTrace();
-        }
+
     }
 
     public List<Stationery> getStationeries() {

@@ -1,6 +1,7 @@
 package main.t02t03t04.stationery;
 
 import main.t02t03t04.Price;
+import main.t02t03t04.exception.NoSuchNameException;
 
 import java.awt.*;
 
@@ -10,37 +11,24 @@ import java.awt.*;
 public class WritingTool extends Stationery {
     private Name name;
 
-    private enum Name {
-        PEN,
-        PENCIL,
-        MARKER;
-
-    }
-
     private boolean cap = true; //колпачок
     private Color color;
 
     public WritingTool(String name, Color color, Price price) {
         super(price);
         this.color = color;
-        switch (name.toLowerCase()) {
-            case "pen": {
-                this.name = Name.PEN;
-                break;
-            }
-            case "pencil": {
-                this.name = Name.PENCIL;
-                break;
-            }
-            case "marker": {
-                this.name = Name.MARKER;
-                break;
-            }
-            default: {
-                //TODO throw NoSuchNameException();
-                System.out.println("Can`t identify a writing tool");
-            }
+        try {
+            this.name = Name.valueOf(name.toUpperCase());
+        } catch (IllegalArgumentException exception) {
+            throw new NoSuchNameException(name);
         }
+    }
+
+    private enum Name {
+        PEN,
+        PENCIL,
+        MARKER;
+
     }
 
     public Color getColor() {
@@ -61,7 +49,7 @@ public class WritingTool extends Stationery {
 
     public String getName() {
         if (name == null) {
-            return "none";
+            return NONE;
         }
         return name.name();
     }

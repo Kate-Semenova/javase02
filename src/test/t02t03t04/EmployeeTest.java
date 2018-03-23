@@ -2,6 +2,7 @@ package test.t02t03t04;
 
 import main.t02t03t04.Employee;
 import main.t02t03t04.Price;
+import main.t02t03t04.exception.NoSuchNameException;
 import main.t02t03t04.exception.NoSuchStationaryException;
 import main.t02t03t04.stationery.Stationery;
 import org.junit.Before;
@@ -26,16 +27,6 @@ public class EmployeeTest {
         employee.addStationery(stationery);
     }
 
-    @Test
-    public void addStationeryShouldAddNewPenForEmployeeAndHasPenShouldReturnTrue() {
-        assertTrue(employee.hasStationery(stationery));
-    }
-
-    @Test
-    public void removePenShouldRemoveThePen() throws NoSuchStationaryException {
-        employee.removeStationery(stationery);
-        assertFalse(employee.hasStationery(stationery));
-    }
 
     @Test (expected = NoSuchStationaryException.class)
     public void removePenShouldThrowException() throws NoSuchStationaryException{
